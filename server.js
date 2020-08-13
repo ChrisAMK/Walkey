@@ -1,36 +1,46 @@
-// Requiring necessary npm packages
-const express = require("express");
-const session = require("express-session");
-// Requiring passport as we've configured it
-const passport = require("./config/passport");
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 
-// Setting up port and requiring models for syncing
+// const database = require("database.js")
+// const users = database.users
+
+const routes = require("./controllers/routes.js");
+const express = require('express')
+const server = express()
+const bcrypt = require('bcrypt')
+const passport = require('passport')
+const flash = require('express-flash')
+const session = require('express-session')
+const methodOverride = require('method-override')
+
+const initializePassport = require('./passport-config')
+initializePassport(
+  passport,
+  email => users.find(user => user.email === email),
+  id => users.find(user => user.id === id)
+)
+
+const users = [];
+
+
 const PORT = process.env.PORT || 8080;
-const db = require("./models");
 
-// Creating express app and configuring middleware needed for authentication
-const app = express();
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(express.static("public"));
-// We need to use sessions to keep track of our user's login status
-app.use(
-  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
-);
-app.use(passport.initialize());
-app.use(passport.session());
+server.set('view-engine', 'ejs')
+server.use(express.urlencoded({ extended: false }))
+server.use(flash())
+server.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false
+}))
+server.use(passport.initialize())
+server.use(passport.session())
+server.use(methodOverride('_method'))
+server.use(routes);
 
-// Requiring our routes
-require("./routes/html-routes.js")(app);
-require("./routes/api-routes.js")(app);
 
-// Syncing our database and logging a message to the user upon success
-db.sequelize.sync().then(() => {
-  app.listen(PORT, () => {
-    console.log(
-      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-      PORT,
-      PORT
-    );
-  });
+
+server.listen(PORT, function() {
+  console.log("Server listening on: http://localhost:" + PORT);
 });
