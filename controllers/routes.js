@@ -34,7 +34,7 @@ router.get('/', checkAuthenticated, (request, response) => {
   // Api route for Register Page POST request
   router.post('/register', checkNotAuthenticated, async (request, response) => {
     try {
-      // Hashed password variable, takes the request.body.password and hashes it for database entry
+      // Hashed password variable, takes the request.body.password and hashes it for database entry TO BE ADDED CLOSER TO DEPLOYMENT
       const hashedPassword = await bcrypt.hash(request.body.password, 10)
       user.insertOne(["name, email, password"], [request.body.name, request.body.email, hashedPassword], function(result) {
         console.log(result)

@@ -3,6 +3,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const routes = require("./controllers/routes.js");
+const connection = require("./config/connection.js");
 const express = require('express');
 const server = express();
 const passport = require('passport');
@@ -11,15 +12,34 @@ const session = require('express-session');
 const methodOverride = require('method-override');
 const initializePassport = require('./passport-config');
 
-// Initializing passport to work with the provided database
-initializePassport(
-  passport,
-  email => users.find(user => user.email === email),
-  id => users.find(user => user.id === id)
-);
+/// Grabing all the users and passing them into the initialize Passport Function
+function updateUserListForPassport() {
+  var queryString = "SELECT * FROM users;";
+  connection.query(queryString, function(err, result) {
+      if (err) throw err;
 
-// Make shift database, working on MySQL asap -14/8/2020
-const users = [];
+      initializePassport(
+          passport,
+          email => result.find(user => user.email === email),
+          id => result.find(user => user.id === id)
+        );
+      });
+}
+
+
+setInterval(updateUserListForPassport, 3000)
+
+
+
+// Initializing passport to work with the provided database
+// initializePassport(
+//   passport,
+//   email => users.find(user => user.email === email),
+//   id => users.find(user => user.id === id)
+// );
+
+// // Make shift database, working on MySQL asap -14/8/2020
+// const users = [];
 
 // Declaring the PORT
 const PORT = process.env.PORT || 8080;
