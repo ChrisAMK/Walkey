@@ -1,7 +1,9 @@
 const LocalStrategy = require('passport-local').Strategy
 const bcrypt = require('bcrypt')
 
+// This function checks the database for the against the users provided data
 function initialize(passport, getUserByEmail, getUserById) {
+  // This method makes sure the user has provided correct log in details. If not error messages are thrown.
   const authenticateUser = async (email, password, done) => {
     const user = getUserByEmail(email)
     if (user == null) {
