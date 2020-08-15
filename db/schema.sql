@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS walk-e;
+DROP DATABASE IF EXISTS walke;
 
-CREATE DATABASE walk-e;
+CREATE DATABASE walke;
 
-USE walk-e;
+USE walke;
 
 CREATE TABLE users (
 	id INT NOT NULL auto_increment,
