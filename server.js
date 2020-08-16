@@ -15,15 +15,15 @@ const initializePassport = require('./passport-config');
 /// Grabing all the users and passing them into the initialize Passport Function
 function updateUserListForPassport() {
   var queryString = "SELECT * FROM users;";
-  connection.query(queryString, function(err, result) {
-      if (err) throw err;
+  connection.query(queryString, function (err, result) {
+    if (err) throw err;
 
-      initializePassport(
-          passport,
-          email => result.find(user => user.email === email),
-          id => result.find(user => user.id === id)
-        );
-      });
+    initializePassport(
+      passport,
+      email => result.find(user => user.email === email),
+      id => result.find(user => user.id === id)
+    );
+  });
 }
 
 
@@ -61,6 +61,6 @@ server.use(routes);
 
 
 // telling the server to start and listen for connections
-server.listen(PORT, function() {
+server.listen(PORT, function () {
   console.log("Server listening on: http://localhost:" + PORT);
 });
