@@ -2,8 +2,8 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
 
-const routes = require("./controllers/routes.js");
-const connection = require("./config/connection.js");
+// const routes = require("./controllers/routes.js");
+// const connection = require("./config/connection.js");
 const express = require('express');
 const server = express();
 const passport = require('passport');
@@ -57,10 +57,14 @@ server.use(passport.initialize());
 server.use(passport.session());
 server.use(methodOverride('_method'));
 // Telling the server to use the API routes specified in the required routes.js File
-server.use(routes);
+// Requiring our routes
+require("./routes/html-routes.js")(server);
+require("./routes/api-routes.js")(server);
 
 
 // telling the server to start and listen for connections
-server.listen(PORT, function () {
-  console.log("Server listening on: http://localhost:" + PORT);
+db.sequelize.sync().then(function () {
+  server.listen(PORT, function () {
+    console.log("Server listening on: http://localhost:" + PORT);
+  });
 });
