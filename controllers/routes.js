@@ -11,12 +11,12 @@ const passport = require("passport");
 
 // Api route for Homepage Get request
 router.get('/', checkAuthenticated, (request, response) => {
-    response.render('index.ejs', { name: request.user.name })
+    response.render('index.handlebars', { name: request.user.name })
   })
   
   // Api route for Login Page Get request
   router.get('/login', checkNotAuthenticated, (request, response) => {
-    response.render('login.ejs')
+    response.render('login.handlebars')
   })
   
   // Api route for Login Page Post request -- Typically the user posting a login form of details
@@ -28,7 +28,7 @@ router.get('/', checkAuthenticated, (request, response) => {
   
   // Api route for Register Page Get request
   router.get('/register', checkNotAuthenticated, (request, response) => {
-    response.render('register.ejs')
+    response.render('register.handlebars')
   })
   
   // Api route for Register Page POST request
