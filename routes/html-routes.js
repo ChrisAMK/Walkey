@@ -11,7 +11,7 @@ module.exports = function(app) {
     if (req.user) {
       res.render('index.handlebars');
     }
-    res.render('register.handlebars');
+    res.render('template.handlebars');
   });
 
   app.get("/login", function(req, res) {
@@ -28,6 +28,22 @@ module.exports = function(app) {
       res.render('index.handlebars');
     }
     res.render('register.handlebars');
+  });
+
+  app.get("/booking", function(req, res) {
+    // If the user already has an account send them to the members page
+    if (req.user) {
+      res.render('index.handlebars');
+    }
+    res.render('booking.handlebars');
+  });
+
+  app.get("/payment", function(req, res) {
+    // If the user already has an account send them to the members page
+    if (req.user) {
+      res.render('index.handlebars');
+    }
+    res.render('payment.handlebars');
   });
 
   // Here we've add our isAuthenticated middleware to this route.
