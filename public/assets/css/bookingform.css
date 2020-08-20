@@ -1,0 +1,88 @@
+body {
+    background-image: url(../img/bookingform.jpg);
+    background-size: cover;
+}
+#form {
+    background-color: black;
+    height: 570px;
+    width: 750px;
+    margin: auto;
+    padding: 20px;
+    opacity: 0.8;
+}
+#form h1 {
+    color: white;
+}
+#form h3 {
+    border-bottom: 2px solid white;
+    width: 210px;
+    padding: 5px;
+}
+::placeholder {
+    color: white;
+}
+#input #input-group {
+    width: 335px;
+    margin: 5px;
+    padding-bottom: 5px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: transparent;
+    color: white;
+}
+#input-2 #input-group {
+    width: 220px;
+    margin: 5px;
+    padding-bottom: 5px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: transparent;
+    color: white;
+}
+#input-3 #input-group {
+    width: 220px;
+    margin: 5px;
+    padding-bottom: 5px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: transparent;
+    color: white;
+}
+#input-4 #input-group {
+    width: 690px;
+    margin: 5px;
+    padding-bottom: 5px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: transparent;
+    color: white;
+}
+#input-5 h3 {
+    border-bottom: 2px solid white;
+    width: 220px;
+    padding: 5px;
+}
+#input-6 #input-group {
+    width: 335px;
+    margin: 5px;
+    padding-bottom: 5px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: transparent;
+    color: white;
+}
+#input-7 #input-group {
+    width: 690px;
+    margin: 5px;
+    padding-bottom: 5px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: transparent;
+    color: white;
+}
