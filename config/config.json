@@ -15,10 +15,10 @@
       "dialect": "mysql"
     },
     "production": {
-      "username": "root",
-      "password": "Bootcamp2020",
-      "database": "database_production",
-      "host": "127.0.0.1",
+      "username": "j7mmuffc8t11z5t8",
+      "password": "jq7600h3lpyu8qfo",
+      "database": "lwbz6ayo002x85lo",
+      "host": "qf5dic2wzyjf1x5x.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
       "dialect": "mysql"
     }
   }
