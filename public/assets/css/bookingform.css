@@ -1,7 +1,6 @@
 body {
-    background-image: url(img/bookingform.jpg);
+    background-image: url(../img/bookingform.jpg);
     background-size: cover;
-    color: white;
 }
 #form {
     background-color: black;
