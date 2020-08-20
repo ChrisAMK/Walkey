@@ -1,7 +1,7 @@
 {
     "development": {
       "username": "root",
-      "password": "Bootcamp2020",
+      "password": "",
       "database": "walke",
       "host": "localhost",
       "port": 3306,
@@ -9,7 +9,7 @@
     },
     "test": {
       "username": "root",
-      "password": "Bootcamp2020",
+      "password": "",
       "database": "database_test",
       "host": "127.0.0.1",
       "dialect": "mysql"
