@@ -3,7 +3,7 @@ html {
 }
 body {
     font-family: 'Times New Roman', Times, serif;
-    color: #505962;
+    color: lightgray;
     overflow-x: hidden;
 }
 
@@ -46,14 +46,16 @@ body {
 }
 .caption {
     z-index: 1;
-    position: absolute;
-    top: 40%;
+    position: relative;
     text-align: center;
 }
 .btn {
     border-width: medium;
     border-radius: 0;
     text-transform: uppercase;
+    margin: 150px;
+    opacity: 0.8;
+    margin-right: -100px;
 }
 
 /* About */

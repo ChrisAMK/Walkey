@@ -1,3 +1,25 @@
+/* navigation */
+.navbar-brand img {
+    height: 2rem;
+}
+.navbar-dark {
+    padding: .6rem 1rem;
+    font-size: .9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+}
+.navbar-nav li {
+    padding-right: .8rem;
+}
+.navbar-nav .nav-link {
+    padding-top: .8rem;
+    color: white!important;
+}
+.navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+    color: turquoise!important;
+}
+
 body {
     background-image: url(../img/bookingform.jpg);
     background-size: cover;
