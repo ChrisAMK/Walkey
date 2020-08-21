@@ -1,3 +1,25 @@
+/* navigation */
+.navbar-brand img {
+    height: 2rem;
+}
+.navbar-dark {
+    padding: .6rem 1rem;
+    font-size: .9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+}
+.navbar-nav li {
+    padding-right: .8rem;
+}
+.navbar-nav .nav-link {
+    padding-top: .8rem;
+    color: white!important;
+}
+.navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+    color: turquoise!important;
+}
+
 .image-container {
     background-image: url(../img/login.jpg);
     background-size: cover;
@@ -29,13 +51,7 @@
     border-radius: 5px;
     outline: none;
     background: white;
-    padding-left: 80px;
-}
-.form-box .form-input span {
-    position: absolute;
-    margin-top: -1px;
-    padding-left: 5px;
-    color: #777;
+    padding-left: 30px;
 }
 .form-box .form-input input::placeholder {
     padding-left: 0px;
@@ -102,4 +118,17 @@
 .form-box .btn-google:hover {
     background: #bf3b31;
     color: #fff;
+}
+.form-box .btn-instagram:hover {
+    background: #0a4352;
+    color: #fff;
+}
+.form-box .btn-register {
+    color: #fff;
+    border: 0px;
+    display: inline-block;
+    margin: -30px;
+    margin-right: -30px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
