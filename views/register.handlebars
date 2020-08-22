@@ -1,80 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register Form</title>
-  <link rel="stylesheet" href="css/register.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-</head>
+<body data-spy="scroll" data-target="#navbarResponsive">
+  <!-- start home section -->
+  <div id="home">
+  <!-- navigation -->
+  <nav class="navbar navbar-info bg-info navbar-expand-md fixed-top">
+      <a href="#home" class="navbar-brand"><img src="https://img.icons8.com/color/48/000000/animal-shelter.png" alt="Logo" title="Logo"/></a>
+      <button class="navbar-toggler" type="button" data-toggler="collapse" data-target="#navbarResponsive">
+          <span class="navbar-toggler-icon"></span>
+      </button>
 
-<body>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-3"></div>
-
-      <div class="col-lg-6">
-        <div id="ui">
-          <h1 class="text-center">Registeration Form</h1>
-          <form class="form-group text-center">
-            <!-- firstname -->
-            <div class="row">
-              <div class="col-lg-6">
-                <label>First Name:</label>
-                <input type="text" name="fname" class="form-control" placeholder="Enter your First name">
-              </div>
-              <br>
-            <!-- lastname -->
-              <div class="row">
-                <div class="col-lg-6">
-                  <label>Last Name:</label>
-                  <input type="text" name="lname" class="form-control" placeholder="Enter your Last name">
-                </div>
-            </div>
-            <br>
-            <!-- email -->
-            <label>E-mail</label>
-            <input type="email" name="email" class="form-control" placeholder="Enter your e-mail address">
-            <br>
-            <!-- password -->
-            <div class="row">
-              <div class="col-lg-6">
-                <label>Password:</label>
-                <input type="text" name="password" class="form-control" placeholder="Enter New password">
-              </div>
-            <br>
-              <div class="row">
-                <div class="col-lg-6">
-                  <label>Re-enter Password:</label>
-                  <input type="text" name="password" class="form-control" placeholder="Re-enter password again">
-                </div>
-            </div>
-            <br>
-            <!-- gender -->
-            <select class="form-control">
-              <option>Choose Gender</option>
-              <option>Male</option>
-              <option>Female</option>
-              <option>Others</option>
-            </select>
-            <br>
-            <input type="submit" name="submit" value="submit" class="btn btn-primary btn-block btn-lg">
-
-          </form>
-        </div>
+      <div class="collapse navbar-collapse" id="#navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item"><a href="template.html #home" class="nav-link center">Home</a></li>
+              <li class="nav-item"><a href="template.html #about" class="nav-link center">About</a></li>
+              <li class="nav-item"><a href="template.html #service" class="nav-link center">Services</a></li>
+              <li class="nav-item"><a href="template.html #stories" class="nav-link center">Testimonials</a></li>
+              <li class="nav-item"><a href="login.html" class="nav-link center">Sign In</a></li>
+              <li class="nav-item"><a href="template.html #logout" class="nav-link center">Logout</a></li>
+          </ul>
       </div>
+  </nav>
 
-      <div class="col-lg-3"></div>
+<!-- form -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 d-none d-md-block image-container">
+    </div>
+
+    <div class="col-lg-6 col-md-6 form-container">
+      <div class="col-lg-8 col-md-12 col-sm-9 col-xs-12 form-box text-center">
+        <div class="heading mb-4">
+          <h4>Create an account</h4>
+        </div>
+        <form>
+          <div class="form-input">
+            <input type="text" placeholder="First Name" required>
+          </div>
+          <div class="form-input">
+            <input type="text" placeholder="Last Name" required>
+          </div>
+          <div class="form-input">
+            <input type="email" placeholder="Email Address" required>
+          </div>
+          <div class="form-input">
+            <input type="password" placeholder="Password" required>
+          </div>
+          <div class="form-input">
+            <input type="password" placeholder="Re-enter Password" required>
+          </div>
+          <div class="form-input">
+            <input type="text" placeholder="Contact Number" required>
+          </div>
+          <div class="text-left mb-3">
+            <button type="submit" class="btn">Register</button>
+          </div>
+
+        </form>
+
     </div>
   </div>
-</body>
-</html>
-
-
-
-    
-    
