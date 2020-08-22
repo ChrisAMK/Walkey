@@ -30,7 +30,7 @@ $(document).ready(function () {
     emailInput.val("");
     passwordInput.val("");
     genderInput.val("");
-
+    console.log(firstNameInput, lastNameInput, emailInput, passwordInput, genderInput)
   });
 
   // Does a post to the register route. If successful, we are redirected to the members page
@@ -42,7 +42,6 @@ $(document).ready(function () {
       email: email,
       password: password,
       gender: gender
-
     })
       .then(function (data) {
         window.location.replace("/members");
