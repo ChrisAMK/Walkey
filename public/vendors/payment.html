@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="css/payment.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+    
+</head>
+<body data-spy="scroll" data-target="#navbarResponsive">
+    <!-- start home section -->
+    <div id="home">
+    <!-- navigation -->
+    <nav class="navbar navbar-info bg-info navbar-expand-md fixed-top">
+        <a href="#home" class="navbar-brand"><img src="https://img.icons8.com/color/48/000000/animal-shelter.png" alt="Logo" title="Logo"/></a>
+        <button class="navbar-toggler" type="button" data-toggler="collapse" data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="#navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a href="template.html #home" class="nav-link center">Home</a></li>
+                <li class="nav-item"><a href="template.html #about" class="nav-link center">About</a></li>
+                <li class="nav-item"><a href="template.html #service" class="nav-link center">Services</a></li>
+                <li class="nav-item"><a href="template.html #stories" class="nav-link center">Testimonials</a></li>
+                <li class="nav-item"><a href="login.html" class="nav-link center">Sign In</a></li>
+                <li class="nav-item"><a href="template.html #logout" class="nav-link center">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- form -->
+    <div class="container">
+        <form class="form-group">
+            <h1 class="text-center ">Checkout Form</h1>
+            <div id="form">
+                <div class="row my-3 gy-3">
+                <h4 class="mb-3">Billing Address</h4>
+
+            <div class="row g-3">
+                <div class="col-sm-12">
+                    <label for="firstname" class="form-label">First Name</label>
+                    <input id="firstname" type="text" class="form-control" placeholder="First Name" required>
+                    <div class="invalid-feedback" placeholder="First Name">Valid first name is required.</div>    
+                </div>
+
+                <div class="col-sm-12">
+                    <label for="lastname" class="form-label">Last Name</label>
+                    <input id="lastname" type="text" class="form-control" placeholder="Last Name" required>
+                    <div class="invalid-feedback" placeholder="Last Name">Valid last name is required.</div>    
+                </div>
+
+                <div class="col-sm-12">
+                    <label for ="user" class="form-label">Username</label>
+                    <input id="username" type="text" class="form-control" placeholder="Username" required>
+                    <div class="invalid-feedback" placeholder="username">Valid username is required.</div>
+                </div>
+
+                <div class="col-md-6">
+                    <label for ="state" class="form-label">State</label>
+                    <select id="state" class="form-control">
+                        <option value="">Choose--</option>
+                        <option value="Australia">NT</option>
+                        <option value="Australia">WA</option>
+                        <option value="Australia">SA</option>
+                        <option value="Australia">ACT</option>
+                        <option value="Australia">VIC</option>
+                        <option value="Australia">NSW</option>
+                        <option value="Australia">QLD</option>
+                        <option value="Australia">TAS</option>
+                    </select>
+                    <div class="invalid-feedback" placeholder="state">Valid last name is required.</div>
+                </div>
+
+                <div class="col-md-6">
+                    <label for ="postcode" class="form-label">Postcode</label>
+                    <input id="postcode" type="text" class="form-control" placeholder="1234">
+                    <div class="invalid-feedback" placeholder="postcode">Valid last name is required.</div>
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="form-check">
+                        <input id="sameAddress" type="checkbox" class="form-check-input">
+                        <label class="form-check-label" for="sameAddress">If billing address is same as above.</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input id="saveInfo" type="checkbox" class="form-check-input">
+                        <label class="form-check-label" for="saveInfo">Save this info</label>
+                    </div>
+                </div>
+            </div>
+               
+            <!-- Payments -->
+            <div class="row my-3 gy-3">
+            <h4 class="mb-3">Payments</h4>
+                
+                <div class="col-sm-12">
+                    <div class="form-check">
+                        <input id="creditCard" name="paymentMethod" type="radio" class="form-check-input" checked required>
+                        <label for="creditCard">Credit Card</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input id="creditCard" name="paymentMethod" type="radio" class="form-check-input" checked required>
+                        <label for="creditCard">Direct Debit</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" checked required>
+                        <label for="paypal">PayPal</label>
+                    </div>
+                </div>
+            </div>
+            <!-- card details -->
+                <div class="row my-3 gy-3">
+                    <div class="col-md-6">
+                        <label for="fullName" class="form-label">Name on card</label>
+                        <input id="fullName" type="text" class="form-control">
+                        <small class="text-muted">Full name as displayed on card</small>
+                        <div class="invalid-feedback">Name on card is required.</div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="ccNumber" class="form-label">Credit Card number</label>
+                        <input id="ccNumber" type="text" class="form-control">
+                        <div class="invalid-feedback">Credit card number is required.</div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="ccExpire" class="form-label">Expiration Date</label>
+                        <input id="ccExpire" type="text" class="form-control">
+                        <div class="invalid-feedback">Expiration is required.</div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="ccCvv" class="form-label">CVV</label>
+                        <input id="ccCvv" type="text" class="form-control">
+                        <div class="invalid-feedback">CVV is required.</div>
+                    </div>
+
+                    <hr class="my-4">
+                    
+                    <div class="col-3 py-5 text-center">
+                    <button class="btn btn-primary btn-lg btn-block">Continue with payment</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </form>           
+    </div>
+
+    
+</body>
+</html>
