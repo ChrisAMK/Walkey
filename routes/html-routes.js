@@ -6,13 +6,13 @@ var isAuthenticated = require("../config/middleware/isAuthenitcated");
 
 module.exports = function(app) {
 
-  // app.get("/", function(req, res) {
-  //   // If the user already has an account send them to the members page
-  //   if (req.user) {
-  //     res.render('index.handlebars');
-  //   }
-  //   res.render('booking.handlebars');
-  // });
+  app.get("/", function(req, res) {
+    // If the user already has an account send them to the members page
+    if (req.user) {
+      res.render('index.handlebars');
+    }
+    res.render('booking.handlebars');
+  });
 
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the members page
@@ -49,7 +49,7 @@ module.exports = function(app) {
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/register", isAuthenticated, function(req, res) {
-    res.sendFile(path.join(__dirname, "../assets/register.html"));
+    res.sendFile(path.join(__dirname, "../vendors/register.html"));
   });
 
 };

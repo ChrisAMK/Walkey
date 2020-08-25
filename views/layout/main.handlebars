@@ -1,32 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project 2</title>
-    <link rel="stylesheet" href="css/template.css">
-    <link rel="stylesheet" href="css/register.css">
-    <link rel="stylesheet" href="css/payment.css">
-    <link rel="stylesheet" href="css/login.css">
-    <link rel="stylesheet" href="css/bookingform.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
-    <a href="https://icons8.com/icon/8CQiYMYllkAz/animal-shelter"></a>
-    <a href="https://icons8.com/icon/uLWV5A9vXIPu/facebook"></a>
-    <a href="https://icons8.com/icon/Xy10Jcu1L2Su/instagram"></a>
-    <a href="https://icons8.com/icon/MP7jET0S1bw5/twitter-squared"></a>
+    
+    {{>head}}
 
 </head>
-<body>
-    {{{ body }}}
+
+    {{>nav}}
+    <!-- landing page content -->
+    <div class="col-12 caption">
+        <div class="home-wrap">
+            <div class="home-inner"><a href="#about" class="btn btn-warning"><h3 class="text-light text-uppercase">{{page.home.header}}</h3></a></div>    
+    </div>
+</div>
+
+    <!-- jumbotron -->
+    <div id="about" class="offset">
+    <div class="jumbotron text-center pt-5 mb-0">
+        <h2 class="heading">About</h2>
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6 col-lg-4 service pb-4 pb-lg-2">
+                <img src={{page.about1.img}} alt="homeowner" class="card">
+                <h4 class="text-uppercase pt-3 pb-2">{{page.about1.header}}</h4>
+                <p class="lead"><b>{{page.about1.text}}</b></p>
+            </div>
+
+            <div class="col-md-6 col-lg-4 service pb-4 pb-lg-2">
+                <img src={{page.about2.img}} alt="petsitter" class="card">
+                <h4 class="text-uppercase pt-3 pb-2">{{page.about2.header}}</h4>
+                <p class="lead"><b>{{page.about2.text}}</b></p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+    <!-- Services -->
+    <div id="service" class="offset">
+        <div class="container-fluid text-center py-5 mx-0">
+            <h2 class="heading">Services</h2>
+            
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-6 col-lg-5 p-0 float-md-right service-item overflow-hidden">
+                    <a href={{ booking }} target="_blank">
+                        <img src="img/booking.PNG" alt="booking" class="card-border">
+                    </a>
+                </div>
+
+                <div class="col-md-6 col-lg-5 p-0 service-item overflow-hidden">
+                    <a href={{ payment }} target="_blank">
+                        <img src="img/payment.PNG" alt="payment" class="card-border">
+                    </a>
+                </div>
+            </div>
+
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-6 col-lg-5 p-0 service-item overflow-hidden">
+                    <a href={{ register }} target="_blank">
+                        <img src="img/signup.PNG" alt="register" class="card-border">
+                    </a>
+                </div>
+
+                <div class="col-md-6 col-lg-5 p-0 service-item overflow-hidden">
+                    <a href={{ login }} target="_blank">
+                        <img src="img/signin.jpg" alt="login" class="card-border">
+                    </a>
+                </div>    
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-10">
+                    <p class="lead mt-5 mb-4"><b>{{page.service.text}}</b></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonial -->
+    <div id="stories" class="offset">
+        <div class="jumbotron text-center pb-5 mb-0">
+            <h2 class="heading">Testimonials</h2>
+            <div class="row justify-content-center mt-5">
+                <div class="col-11 col-md-10">
+                    <div class="row pt-3">
+                        <div class="col-md-6 pb-5">
+                            <div class="card rounded-0 mx-lg-4">
+                                <img src={{page.testimonials1.img}} alt="Customer Image" class="card-img-top rounded-0">
+                                <div class="card-body">
+                                    <h4>{{page.testimonials1.header}}</h4>
+                                    <p class="lead border-top pt-3">{{page.testimonials1.text}}</p>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 pb-5">
+                            <div class="card rounded-0 mx-lg-4">
+                                <img src={{page.testimonials2.img}} alt="Customer Image" class="card-img-top rounded-0">
+                                <div class="card-body">
+                                    <h4>{{page.testimonials2.header}}</h4>
+                                    <p class="lead border-top pt-3">{{page.testimonials2.text}}</p>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{>footer}}
 
 
-<script type="text/javascript" src="js/register.js"></script>
-<script type="text/javascript" src="js/login.js"></script>
-<script type="text/javascript" src="js/members.js"></script>
+    {{>scripts}}
 
 </body>
 </html>

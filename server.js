@@ -2,6 +2,70 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
 
+// Requiring necessary npm packages
+var express = require("express");
+var session = require("express-session");
+// Requiring passport as we've configured it
+var passport = require("./config/passport");
+var expressHandlebars = require("express-handlebars");
+var path = require("path");
+
+// Setting up port and requiring models for syncing
+var PORT = process.env.PORT || 8080;
+var db = require("./models");
+
+// Creating express app and configuring middleware needed for authentication
+var app = express();
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+// We need to use sessions to keep track of our user's login status
+app.use(session({ secret: process.env.SESSION_SECRET, resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Requiring our routes
+require("./routes/html-routes.js")(app);
+require("./routes/api-routes.js")(app);
+
+// app.use(express.static("public"));
+app.use(express.static(__dirname + '/public'));
+
+var hbs = expressHandlebars.create({
+  defaultLayout: "main",
+  layoutsDir: path.join(__dirname, "views/layout"), 
+  partialsDir: path.join(__dirname, "views/partials"),
+  // create custom express handlerbars helpers
+  helpers: {
+    calculation: function(value) {
+      return value * 10;
+    },
+    list: function(value, options) {
+      let out = "<ul>";
+      for (let i = 0; i < value.length; i++) {
+        out = out + "<li>" + options.fn(value[i]) + "<li>";
+      }
+      return out + "<ul>";
+    }
+  }
+})
+
+// View Engine
+app.engine("handlebars", expressHandlebars({ 
+  defaultLayout: "main",
+  layoutsDir: path.join(__dirname, "views/layout")
+}));
+
+app.set("view engine", "handlebars");
+
+// Syncing our database and logging a message to the user upon success
+db.sequelize.sync().then(function() {
+  app.listen(PORT, function() {
+    console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
+  });
+});
+
+
 // const express = require('express');
 // const server = express();
 // const passport = require('passport');
@@ -69,42 +133,3 @@ if (process.env.NODE_ENV !== 'production') {
 //     console.log("Server listening on: http://localhost:" + PORT);
 //   });
 // });
-
-
-// Requiring necessary npm packages
-var express = require("express");
-var session = require("express-session");
-// Requiring passport as we've configured it
-var passport = require("./config/passport");
-var expressHandlebars = require("express-handlebars");
-
-// Setting up port and requiring models for syncing
-var PORT = process.env.PORT || 8080;
-var db = require("./models");
-
-// Creating express app and configuring middleware needed for authentication
-var app = express();
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-// app.use(express.static("public"));
-app.use(express.static(__dirname + '/public'));
-
-// We need to use sessions to keep track of our user's login status
-app.use(session({ secret: process.env.SESSION_SECRET, resave: true, saveUninitialized: true }));
-app.use(passport.initialize());
-app.use(passport.session());
-
-// Requiring our routes
-require("./routes/html-routes.js")(app);
-require("./routes/api-routes.js")(app);
-
-// View Engine
-app.engine("handlebars", expressHandlebars({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
-
-// Syncing our database and logging a message to the user upon success
-db.sequelize.sync().then(function() {
-  app.listen(PORT, function() {
-    console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
-  });
-});
