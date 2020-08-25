@@ -9,15 +9,15 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.render('index.handlebars');
+      res.render('home.handlebars');
     }
-    res.render('booking.handlebars');
+    res.render('home.handlebars');
   });
 
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.render('index.handlebars');
+      res.render('login.handlebars');
     }
     res.render('login.handlebars');
   });
@@ -25,7 +25,7 @@ module.exports = function(app) {
   app.get("/register", function(req, res) {
     // If the user already has an account send them to the register page
     if (req.user) {
-      res.render('index.handlebars');
+      res.render('register.handlebars');
     }
     res.render('register.handlebars');
   });
@@ -33,7 +33,7 @@ module.exports = function(app) {
   app.get("/booking", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.render('index.handlebars');
+      res.render('booking.handlebars');
     }
     res.render('booking.handlebars');
   });
