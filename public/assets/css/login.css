@@ -66,7 +66,7 @@
     width: 15px;
     height: 15px;
 }
-.form-box .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+.form-box .custom-checkbox .custom-control-input:checked .custom-control-label::before {
     background-color: #48403d;
     border: 0px;
 }

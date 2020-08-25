@@ -41,7 +41,7 @@ module.exports = function(app) {
   app.get("/payment", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.render('index.handlebars');
+      res.render('payment.handlebars');
     }
     res.render('payment.handlebars');
   });
