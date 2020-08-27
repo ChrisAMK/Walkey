@@ -2,14 +2,22 @@
 var db = require("../models");
 var passport = require("../config/passport");
 var bcrypt = require("bcrypt");
+const passportNpm = require("passport");
+
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
-  app.post("/api/login", passport.authenticate("local"), function(req, res) {
-    res.json(req.user);
-  });
+  // app.post("/api/login", passport.authenticate("local"), function(req, res) {
+  //   res.json(req.user);
+  // });
+
+  app.post('/api/login', checkNotAuthenticated, passportNpm.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/fail',
+    failureFlash: true
+  }))
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
@@ -30,7 +38,7 @@ module.exports = function(app) {
       contact: req.body.contact
     })
       .then(function() {
-        res.redirect(307, "/api/login");
+        res.redirect(307, "/login");
       })
       .catch(function(err) {
         console.log(err)
@@ -58,7 +66,27 @@ module.exports = function(app) {
       });
     }
   });
-};
+
+
+  // Helper Functions, to ensure correct log in details are passed in, Needs to be put in a seperate file later.
+  function checkAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+      return next()
+    }
+  
+    res.redirect('/login')
+  }
+  
+  function checkNotAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+      return res.redirect('/')
+    }
+    next()
+  }
+
+
+
+ };
 
 
 
