@@ -1,7 +1,7 @@
 {
     "development": {
       "username": "root",
-      "password": "happy",
+      "password": "",
       "database": "walke",
       "host": "localhost",
       "port": 3306,

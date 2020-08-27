@@ -1,6 +1,7 @@
 // Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
+var bcrypt = require("bcrypt");
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -13,10 +14,20 @@ module.exports = function(app) {
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
+
   app.post("/api/register", function(req, res) {
+    console.log(req.body);
+    console.log(req.body.password);
+
+
+    const hashedPassword = bcrypt.hash(req.body.password, 10)
+    console.log(hashedPassword)
     db.User.create({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      contact: req.body.contact
     })
       .then(function() {
         res.redirect(307, "/api/login");
@@ -87,21 +98,6 @@ module.exports = function(app) {
 //   })
   
 //   // Api route for Register Page POST request
-//   router.post('/register', checkNotAuthenticated, async (request, response) => {
-//     try {
-//       // Hashed password variable, takes the request.body.password and hashes it for database entry TO BE ADDED CLOSER TO DEPLOYMENT
-//       const hashedPassword = await bcrypt.hash(request.body.password, 10)
-//       user.insertOne(["name, email, password"], [request.body.name, request.body.email, hashedPassword], function(result) {
-//         console.log(result)
-//       });
-//       // Redirect to login page once the user has submitted a Registration Form
-//       response.redirect('/login')
-//     // If there is an error, redirect to the register page, (essentially - Reload the page and try again)
-//     } catch {
-//       response.redirect('/register')
-//     }
-//   })
-
 //   // API DELETE Request on the Logout page
 //   router.delete('/logout', (request, response) => {
 //     request.logOut()
